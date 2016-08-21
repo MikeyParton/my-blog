@@ -5,17 +5,21 @@
 				<h1>Recent Posts</h1>
 			</div>
 			<div class="panel-body">
-				<%= button_to "New Arcticle", new_article_path, 
-					:method => "get", class: "btn btn-primary" %>
 				
 				<ul id="articles">
 					<% @articles.each do |article| %>
-						<li id="article-<%= article.id %>">
-							<%= link_to article.title, article_path(article), class: 'article_title' %>
-						</li>
+					
+						<%= link_to article_path(article) do %>
+							<li class="article-preview" id="article-<%= article.id %>">	
+								<h4><%= article.title %></h4>
+								<p><%= "posted #{time_ago_in_words(article.created_at)} ago" %></p>
+							</li>
+						<% end %>
 
 					<%end%> 
 				</ul>
+				<%= button_to "New Arcticle", new_article_path, 
+					:method => "get", class: "btn btn-success new-article-btn" %>
 			</div> 
 		</div>
 	</div>
