@@ -9,12 +9,21 @@
 					<p>
 						<%= @article.body %>
 					</p>
-					<p>
-						<%= "Posted" + time_ago_in_words(@article.created_at) + " ago" %>
+					
+						<p>
+						<%= "Posted " + time_ago_in_words(@article.created_at) + " ago" %>
 					</p>
-					<%= link_to "Delete", article_path(@article), method: :delete ,
-										  data: {confirm: "Are you sure?"} %> |
-					<%= link_to "Edit", edit_article_path(@article) %>
+						<div class="article-tags">
+							Tags: <% @article.tags.each do |tag| %>
+								<%= link_to tag.name, tag_path(tag), class:"label label-primary" %>
+							<% end %>
+						</div>
+						<div class="article-actions">
+							<%= link_to "Delete", article_path(@article), method: :delete ,
+												  data: {confirm: "Are you sure?"} %> |
+							<%= link_to "Edit", edit_article_path(@article) %>
+						</div>
+				
 				</div>
 				
 					<ul class="article-comments">

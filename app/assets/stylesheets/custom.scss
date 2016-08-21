@@ -6,7 +6,33 @@
     width:100%;
 }
 
+.tag-index {
+    padding: 5px 0 5px 0;
+}
 
+.article-body{
+    overflow: hidden;
+    margin-bottom: 5px;    
+}
+
+.article-preview{
+    .article-body{
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        width: 100%;
+    }
+}
+
+.article-actions{
+    float: right;
+}
+
+.article-tags{
+    float: left;
+}
 
 .panel {
     .btn {
@@ -37,7 +63,6 @@
 }
 
 .article-comments {
-    
     border-top: solid grey 1px;
     
     li {

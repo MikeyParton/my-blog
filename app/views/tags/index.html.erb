@@ -1,0 +1,24 @@
+<div class="container-fluid">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1>Post tags</h1>
+			</div>
+			<div class="panel-body">
+				
+				<ul id="articles">
+					<% @tags.each do |tag| %>
+					
+						<%= link_to tag_path(tag) do %>
+							<li class="tag-index">	
+								<span class="label label-primary"><%= tag.name %></span>
+								<span><%= pluralize(tag.articles.count, "Article") %></span>
+							</li>
+						<% end %>
+
+					<%end%> 
+				</ul>
+			</div> 
+		</div>
+	</div>
+</div>

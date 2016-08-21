@@ -2,28 +2,22 @@
 	<div class="col-md-8 col-md-offset-2">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h1>Recent Posts</h1>
+				<h1><%= pluralize(@tag.articles.count, "Article") %> with tag: <%= @tag.name %></h1>
 			</div>
 			<div class="panel-body">
-				
 				<ul id="articles">
-					<% @articles.each do |article| %>
+					<% @tag.articles.each do |article| %>
 					
 						<%= link_to article_path(article) do %>
 							<li class="article-preview" id="article-<%= article.id %>">	
 								<h4><%= article.title %></h4>
-								<p class="article-body"><%= article.body %></p>
 								<p><%= "posted #{time_ago_in_words(article.created_at)} ago" %></p>
 							</li>
 						<% end %>
 
 					<%end%> 
 				</ul>
-				<%= button_to "New Arcticle", new_article_path, 
-					:method => "get", class: "btn btn-success new-article-btn" %>
-			</div> 
+			</div>	
 		</div>
 	</div>
 </div>
-
-
