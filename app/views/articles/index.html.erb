@@ -9,11 +9,11 @@
 				<ul id="articles">
 					<%= render @articles %>
 				</ul>
-				<%= button_to "New Arcticle", new_article_path, 
-					:method => "get", class: "btn btn-success new-article-btn" %>
+				<% if logged_in? %>
+					<%= button_to "New Arcticle", new_article_path, 
+						:method => "get", class: "btn btn-success new-article-btn" %>
+				<% end %>
 			</div> 
 		</div>
 	</div>
 </div>
-
-

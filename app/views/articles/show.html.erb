@@ -16,15 +16,18 @@
 						<p>
 						<%= "Posted " + time_ago_in_words(@article.created_at) + " ago" %>
 						</p>
-						<div class="article-tags">
-							Tags: <% @article.tags.each do |tag| %>
-								<%= link_to tag.name, tag_path(tag), class:"label label-primary" %>
+						<div class="flex-parent">
+								Tags: <% @article.tags.each do |tag| %>
+									<%= link_to tag.name, tag_path(tag), class:"label label-primary" %>
+								<% end %>
+
+							<% if logged_in? %>	
+								<div class="pull-right">
+									<%= link_to "Delete", article_path(@article), method: :delete ,
+														  data: {confirm: "Are you sure?"} %> <span> | </span>
+									<%= link_to "Edit", edit_article_path(@article) %>
+								</div>
 							<% end %>
-						</div>
-						<div class="article-actions">
-							<%= link_to "Delete", article_path(@article), method: :delete ,
-												  data: {confirm: "Are you sure?"} %> |
-							<%= link_to "Edit", edit_article_path(@article) %>
 						</div>
 				
 				</div>

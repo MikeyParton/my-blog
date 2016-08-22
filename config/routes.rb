@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   		resources :comments
 	end
 	resources :tags
-  
-	get "/new", to:"articles#new"
-	post "/new", to:"articles#create"
+	resources :authors
 
+	resources :author_sessions, only: [:new, :create, :destroy]
+	get "login"  => "author_sessions#new"
+	get "logout" => "author_sessions#destroy"
 end

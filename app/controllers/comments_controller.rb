@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+	
+	before_action :authenticated_user, only: [:destroy]
+
 	def create
 		@article = Article.find(params[:article_id])
 		@comment = @article.comments.build(comment_params)
@@ -8,6 +11,10 @@ class CommentsController < ApplicationController
 		else
 
 		end
+	end
+
+	def destroy
+
 	end
 
 	private

@@ -10,9 +10,13 @@
 					<% @tags.each do |tag| %>
 					
 						<%= link_to tag_path(tag) do %>
-							<li class="tag-index">	
+							<li class="tag-container">	
 								<span class="label label-primary"><%= tag.name %></span>
 								<span><%= pluralize(tag.articles.count, "Article") %></span>
+								<% if logged_in? %>
+									<%= link_to "Delete", tag_path(tag), method: :delete, 
+												  data: {confirm: "Are you sure?"}, class:"pull-right" %>
+								<% end %>
 							</li>
 						<% end %>
 

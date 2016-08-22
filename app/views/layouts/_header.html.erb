@@ -3,8 +3,16 @@
       <div class="navbar-header">
       	<%= link_to "Blogger", root_path, id: "logo" %>
       </div>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Categories", tags_path %></li>
+        </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Categories", tags_path %></li>
+        <% if logged_in? %>
+          <p class="navbar-text">Signed in as <%=current_user.email %></p>
+          <%= link_to "Logout", logout_path, class:"btn btn-primary navbar-btn" %>
+        <% else %>
+        	<%= link_to "Login / Sign Up", login_path, class:"btn btn-primary navbar-btn" %>
+        <% end %>
       </ul>
     </div>
 </nav>

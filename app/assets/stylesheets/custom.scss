@@ -1,6 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.navbar-right:last-child{
+    margin-right: 0px;
+}
 
 .article-info {
     align-self: flex-start;
@@ -15,7 +18,7 @@
     width:100%;
 }
 
-.tag-index {
+.tag-container {
     padding: 5px 0 5px 0;
 }
 
@@ -36,14 +39,6 @@
         -webkit-line-clamp: 3;
         width: 100%;
     }
-}
-
-.article-actions{
-    float: right;
-}
-
-.article-tags{
-    float: left;
 }
 
 .panel {
