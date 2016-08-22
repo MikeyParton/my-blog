@@ -2,6 +2,15 @@
 @import "bootstrap";
 
 
+.article-info {
+    align-self: flex-start;
+}
+
+.article-img-container {
+    flex:none;
+    padding: 5px;
+}
+
 .new-article-btn{
     width:100%;
 }
@@ -16,6 +25,9 @@
 }
 
 .article-preview{
+    display: flex;
+    align-items: center;
+    
     .article-body{
         display: -webkit-box;
         overflow: hidden;

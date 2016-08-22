@@ -9,10 +9,13 @@
 					<p>
 						<%= @article.body %>
 					</p>
-					
+					<% if @article.image.exists? %>
+						<p><%= image_tag @article.image.url %></p>
+					<% end %>
+
 						<p>
 						<%= "Posted " + time_ago_in_words(@article.created_at) + " ago" %>
-					</p>
+						</p>
 						<div class="article-tags">
 							Tags: <% @article.tags.each do |tag| %>
 								<%= link_to tag.name, tag_path(tag), class:"label label-primary" %>

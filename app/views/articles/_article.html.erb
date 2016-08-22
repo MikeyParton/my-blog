@@ -1,0 +1,15 @@
+<%= link_to article_path(article) do %>
+<li class="article-preview" id="article-<%= article.id %>">	
+	<div class="article-img-container">
+		<%= image_tag article.image.url(:thumb) %>
+	</div>
+	<div class="article-info">
+		<h4><%= article.title %></h4>
+		<p class="article-body"><%= article.body %></p>
+		<p><%= "posted #{time_ago_in_words(article.created_at)} ago" %></p>
+		<% article.tags.each do |tag| %>
+			<%= link_to tag.name, tag_path(tag), class:"label label-primary" %>
+		<% end %>
+	</div>
+</li>
+<% end %>

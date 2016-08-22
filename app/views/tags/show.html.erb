@@ -6,16 +6,7 @@
 			</div>
 			<div class="panel-body">
 				<ul id="articles">
-					<% @tag.articles.each do |article| %>
-					
-						<%= link_to article_path(article) do %>
-							<li class="article-preview" id="article-<%= article.id %>">	
-								<h4><%= article.title %></h4>
-								<p><%= "posted #{time_ago_in_words(article.created_at)} ago" %></p>
-							</li>
-						<% end %>
-
-					<%end%> 
+						<%= render @tag.articles, partial: "articles/user"%>
 				</ul>
 			</div>	
 		</div>
